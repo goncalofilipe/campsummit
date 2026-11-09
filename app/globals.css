@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  --color-magenta: #DE0E7B;
+  --color-magenta-bg: #CB1977;
+  --color-violet: #6B4AA4;
+  --color-violet-2: #654DA0;
+  --color-teal: #00ACA8;
+  --color-teal-dark: #008484;
+  --color-navy: #0C1439;
+  --color-footer: #F6F6F7;
+  --color-iconbtn: #F5F5F5;
+  --color-line: #E5E5E5;
+  --color-muted: #646464;
+}
+
+:root {
+  --brand-gradient: linear-gradient(93deg, #DE0E7B 1.6%, #6B4AA4 70.5%, #00ACA8 95.4%);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+body { background: #fff; color: var(--color-navy); }
+
+@utility container-cs { @apply mx-auto w-full max-w-[1024px] px-4 sm:px-6; }
+@utility section { @apply py-20 md:py-[120px]; }
+@utility h2 { @apply text-[32px] leading-[40px] md:text-[40px] md:leading-[48px] font-semibold tracking-[0.25px]; }
+@utility body { @apply text-base leading-6 font-normal; }
+
+@utility btn-primary {
+  background: var(--brand-gradient);
+  @apply inline-flex items-center justify-center gap-2 rounded-[60px] px-8 py-3 text-base font-bold text-white transition hover:brightness-110;
+}
+@utility btn-secondary { @apply inline-flex items-center justify-center gap-2 rounded-[60px] bg-white px-8 py-3 text-base font-bold text-black transition hover:bg-white/90; }
+@utility btn-nav { @apply inline-flex whitespace-nowrap items-center gap-2 rounded-[24px] px-[22px] py-[10px] text-sm font-semibold tracking-[0.5px] text-white transition hover:brightness-110; }
+@utility btn-section { @apply inline-flex items-center justify-center gap-2 rounded-[4px] bg-navy px-6 py-4 text-center text-sm font-semibold text-white transition hover:bg-[#1b2556]; }
+@utility btn-section-teal { @apply inline-flex items-center justify-center gap-2 rounded-[4px] bg-teal-dark px-6 py-4 text-center text-sm font-semibold text-white transition hover:bg-[#006f6f]; }
+@utility btn-light { @apply inline-flex h-12 items-center justify-center rounded-[4px] bg-[#E9E9EC] px-6 text-sm font-semibold text-navy transition hover:bg-white; }
+
+@utility field-label { @apply mb-1.5 block text-sm font-bold; }
+@utility field { @apply h-12 w-full rounded-[4px] border border-line bg-white px-4 text-base text-navy placeholder:text-[#9a9a9a] focus:border-navy focus:outline-none; }
+
+/* Hero: "vídeo" feito com o roll-up */
+@keyframes pan {
+  0%, 8% { background-position: 50% 0%; }
+  45%, 55% { background-position: 50% 100%; }
+  92%, 100% { background-position: 50% 0%; }
+}
+.pan { animation: pan 26s ease-in-out infinite; }
+.paused .pan, .paused .beam { animation-play-state: paused; }
+
+@keyframes beam { 0%,100% { transform: rotate(-14deg); opacity: .55 } 50% { transform: rotate(10deg); opacity: .9 } }
+.beam { animation: beam 9s ease-in-out infinite; transform-origin: top center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pan, .beam { animation: none; }
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+@media print {
+  @page { size: A4; margin: 14mm; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { background: #fff !important; }
+  .ticket { break-inside: avoid; }
+}

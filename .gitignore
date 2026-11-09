@@ -1,0 +1,9 @@
+node_modules
+.next
+.env*.local
+.env
+*.pem
+*.p12
+next-env.d.ts
+*.tsbuildinfo
+.playwright-mcp
