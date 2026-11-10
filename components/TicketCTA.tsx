@@ -23,16 +23,19 @@ export default function TicketCTA() {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const name = cleanName(String(fd.get("name") || ""));
-    const email = String(fd.get("email") || "").trim();
-    if (!name || !email) return;
+    // const email = String(fd.get("email") || "").trim();
+    // if (!name || !email) return;
+    if (!name) return;
     setBusy(true);
-    const id = await ticketIdFromEmail(email);
+    // const id = await ticketIdFromEmail(email);
+    const id = await ticketIdFromEmail(name);
     let sent = false;
     try {
       const r = await fetch("/api/ticket", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
+        // body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name }),
       });
       if (r.ok) sent = Boolean((await r.json()).sent);
     } catch {}
