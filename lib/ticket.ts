@@ -32,7 +32,7 @@ export function formatNumber(n: number): string {
 export function seatFor(id: string): string {
   const n = personNumber(id);
   const row = "ABCDEFGHJKLMNPQRSTUV"[n % 20];
-  return `Toldo · Fila ${row} · Chão ${(n % 89) + 1}`;
+  return `Praça · Fila ${row} · Chão ${(n % 89) + 1}`;
 }
 
 export function ticketUrl(base: string, name: string, id: string): string {

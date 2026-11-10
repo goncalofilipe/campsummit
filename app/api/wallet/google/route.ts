@@ -1,5 +1,5 @@
 import { createSign } from "node:crypto";
-import { EVENT, PROGRAM } from "@/lib/event";
+import { EVENT, PROGRAM, WHERE } from "@/lib/event";
 import { seatFor, ticketUrl } from "@/lib/ticket";
 import { baseUrl, pem, readTicketParams } from "@/lib/server";
 import { googleConfigured } from "@/lib/wallet";
@@ -45,12 +45,12 @@ export async function GET(req: Request) {
             {
               id: "when",
               header: "Data e hora",
-              body: `${EVENT.weekday}, ${EVENT.dateLong}, ${EVENT.time}`,
+              body: `${EVENT.weekday}, ${EVENT.dateLong}`,
             },
             {
               id: "where",
-              header: "Local",
-              body: `${EVENT.venue} (${EVENT.venueNote})`,
+              header: "Onde",
+              body: `${WHERE.meet}\n${WHERE.venue}`,
             },
             { id: "seat", header: "Lugar", body: seatFor(p.id) },
             {

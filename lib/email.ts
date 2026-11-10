@@ -1,4 +1,4 @@
-import { EVENT, PROGRAM, LINKS, INSTAGRAM } from "./event";
+import { EVENT, PROGRAM, LINKS, INSTAGRAM, WHERE, WHERE_LINE } from "./event";
 import { formatNumber, personNumber, POPULATION, seatFor } from "./ticket";
 
 const esc = (s: string) =>
@@ -36,7 +36,7 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
 <title>O teu bilhete para o Camp Summit</title>
 </head>
 <body style="margin:0;padding:0;background:#F6F6F7;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${n}, o teu lugar debaixo do toldo está garantido. 12 nov, 17h30, Pavilhão de Portugal.</div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${n}, o teu lugar está garantido. 12 nov: ${WHERE_LINE}</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F6F6F7" style="background:#F6F6F7;">
 <tr><td align="center" style="padding:32px 12px;">
   <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;">
@@ -68,13 +68,13 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
               <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Data</div>
               <div style="font:700 17px/24px ${font};color:#ffffff;">12 nov 2026</div>
               <div style="font:400 13px/18px ${font};color:#b9bdd3;">${EVENT.weekday}</div></td>
-            <td width="27%" valign="top" style="padding-right:8px;">
-              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Hora</div>
-              <div style="font:700 17px/24px ${font};color:#ffffff;">${EVENT.time}</div></td>
-            <td width="40%" valign="top">
-              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Local</div>
+            <td width="67%" valign="top">
+              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Concentração · ${EVENT.meet.time}</div>
+              <div style="font:700 17px/24px ${font};color:#ffffff;">${EVENT.meet.place}</div>
+              <div style="font:400 13px/18px ${font};color:#b9bdd3;">${EVENT.meet.note}</div>
+              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;margin-top:12px;">Debates · ${EVENT.venueTime}</div>
               <div style="font:700 17px/24px ${font};color:#ffffff;">${EVENT.venue}</div>
-              <div style="font:400 13px/18px ${font};color:#b9bdd3;">(${EVENT.venueNote})</div></td>
+              <div style="font:400 13px/18px ${font};color:#b9bdd3;">${EVENT.venueNote}</div></td>
           </tr></table>
         </td></tr>
         <tr><td style="padding:0 28px;"><div style="border-top:2px dashed #2a3360;height:1px;line-height:1px;font-size:1px;">&nbsp;</div></td></tr>
@@ -108,7 +108,8 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
     <!-- texto -->
     <tr><td style="padding:24px 8px 0;font:400 16px/24px ${font};color:#0C1439;">
       <p style="margin:0 0 14px;">Olá ${n},</p>
-      <p style="margin:0 0 14px;">O teu lugar debaixo do toldo está garantido. Na cimeira ao lado, um passe custa centenas de euros. Este custa zero e não levou um cêntimo dos cofres da câmara.</p>
+      <p style="margin:0 0 14px;">O teu lugar está garantido. ${WHERE_LINE}</p>
+      <p style="margin:0 0 14px;">Na cimeira ao lado, um passe custa centenas de euros. Este custa zero e não levou um cêntimo dos cofres da câmara.</p>
       <p style="margin:0 0 14px;">O bilhete é simbólico: a entrada é livre e ninguém o vai pedir à porta. Traz o bilhete, traz amigos e traz o que tens para dizer na Assembleia Popular.</p>
     </td></tr>
 
@@ -141,11 +142,12 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
 
   const text = `Olá ${name},
 
-O teu lugar debaixo do toldo está garantido.
+O teu lugar está garantido.
 
 CAMP SUMMIT 2026
-${EVENT.weekday}, 12 de novembro de 2026, ${EVENT.time}
-${EVENT.venue} (${EVENT.venueNote})
+${EVENT.weekday}, 12 de novembro de 2026
+${WHERE.meet}
+${WHERE.venue}
 
 Código: ${id}
 Lugar: ${seatFor(id)}

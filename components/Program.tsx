@@ -11,15 +11,16 @@ export default function Program() {
     },
     {
       icon: Clock,
-      label: "Início",
-      value: EVENT.time,
-      note: "até ao fim da assembleia",
+      label: `${EVENT.meet.time} · Concentração`,
+      value: EVENT.meet.place,
+      note: EVENT.meet.note,
+      href: LINKS.mapsMeet,
     },
     {
       icon: MapPin,
-      label: "Local",
+      label: `${EVENT.venueTime} · Debates`,
       value: EVENT.venue,
-      note: `(${EVENT.venueNote})`,
+      note: EVENT.venueNote,
       href: LINKS.maps,
     },
   ];
@@ -73,7 +74,7 @@ export default function Program() {
 
         <h2 className="h2 mt-20 text-center">Programa</h2>
         <p className="body mx-auto mt-3 max-w-xl text-center text-muted">
-          Três conversas livres, sem patrocínios nem barreiras à participação.
+          Uma concentração e três conversas livres, sem patrocínios nem barreiras à participação.
         </p>
         <ol className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line">
           {PROGRAM.map((p, i) => (
@@ -90,7 +91,7 @@ export default function Program() {
                 </p>
                 <p className="body mt-1 text-muted">{p.desc}</p>
               </div>
-              {i === 2 && (
+              {i === PROGRAM.length - 1 && (
                 <span className="sr-only">Último ponto do programa</span>
               )}
             </li>

@@ -85,7 +85,7 @@ const ITEMS: T[] = [
     initials: "LN",
     quote:
       "O meu lugar está permanentemente à disponibilidade do sr. primeiro-ministro",
-    note: "O nosso toldo também está disponível.",
+    note: "Na Praça do Oriente também há lugar para ele.",
     source: "SOL / Lusa",
     date: "1 nov 2026",
     href: "https://sol.iol.pt/sociedade/noticias/o-meu-lugar-esta-permanentemente-a-disponibilidade-do-sr-primeiro-ministro-luis-neves-diz-se-tranquilo-com-a-atuacao-da-psp/20261101/6ae750d60cf299bc295441b2",

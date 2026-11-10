@@ -1,6 +1,6 @@
 # Camp Summit 2026
 
-Site de uma página da Acampada de Lisboa para o Camp Summit (12 nov 2026, 17h30, Pavilhão de Portugal, debaixo do toldo), com um sistema de bilhetes simbólicos.
+Site de uma página da Acampada de Lisboa para o Camp Summit (12 nov 2026: concentração às 17h30 na Alameda dos Oceanos, em frente à entrada da Web Summit; debates às 19h na Praça do Oriente), com um sistema de bilhetes simbólicos.
 
 Next.js 15 + Tailwind 4 + Iconoir.
 

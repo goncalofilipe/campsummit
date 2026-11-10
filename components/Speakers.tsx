@@ -10,7 +10,7 @@ const SPEAKERS = [
   { name: "Diogo", role: "32 anos", org: "Ainda em casa dos pais" },
   { name: "Sónia", role: "Mãe e cuidadora", org: "À espera de casa municipal desde 2014" },
   { name: "Dona Lurdes", role: "Vizinha", org: "Única residente que resta no prédio" },
-  { name: "Tu", role: "Inquilino ou inquilina", org: "Lugar reservado debaixo do toldo" },
+  { name: "Tu", role: "Inquilino ou inquilina", org: "Lugar reservado na Praça do Oriente" },
 ];
 
 export default function Speakers() {

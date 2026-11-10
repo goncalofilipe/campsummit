@@ -14,7 +14,7 @@ import {
   ArrowLeft,
 } from "iconoir-react";
 import Logo, { LogoMark } from "./Logo";
-import { EVENT, PROGRAM, INSTAGRAM } from "@/lib/event";
+import { EVENT, WHERE_LINE, PROGRAM, INSTAGRAM } from "@/lib/event";
 import {
   cleanName,
   formatNumber,
@@ -39,8 +39,8 @@ function icsFile(name: string, id: string, url: string) {
     `DTSTART:${stamp(EVENT.startISO)}`,
     `DTEND:${stamp(EVENT.endISO)}`,
     "SUMMARY:Camp Summit 2026",
-    `LOCATION:${EVENT.venue} (${EVENT.venueNote})\\, ${EVENT.address.replace(/,/g, "\\,")}`,
-    `DESCRIPTION:Bilhete ${id} de ${name}.\\n${PROGRAM.map((p) => `${p.time} ${p.title}`).join("\\n")}\\n${url}`,
+    `LOCATION:${EVENT.meet.place} (${EVENT.meet.note})\\, Lisboa`,
+    `DESCRIPTION:Bilhete ${id} de ${name}.\\n${WHERE_LINE.replace(/,/g, "\\,")}\\n${PROGRAM.map((p) => `${p.time} ${p.title}`).join("\\n")}\\n${url}`,
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");
@@ -157,11 +157,13 @@ async function ticketPNG(name: string, id: string, url: string): Promise<Blob> {
   value("12 nov 2026", 110, 815);
   label("Hora", 600, 760);
   value(EVENT.time, 600, 815);
-  label("Local", 110, 910);
-  value(EVENT.venue, 110, 965);
-  value(`(${EVENT.venueNote})`, 110, 1010, 32, 400, "#b9bdd3");
-  label("Lugar", 110, 1100);
-  value(seatFor(id), 110, 1150, 36, 600);
+  label(`Concentração · ${EVENT.meet.time}`, 110, 895);
+  value(EVENT.meet.place, 110, 945);
+  value(EVENT.meet.note, 110, 985, 28, 400, "#b9bdd3");
+  label(`Debates · ${EVENT.venueTime}`, 110, 1050);
+  value(EVENT.venue, 110, 1100);
+  label("Lugar", 600, 1050);
+  value(seatFor(id).replace("Praça · ", ""), 600, 1100, 36, 600);
 
   // picotado
   g.strokeStyle = "#2a3360";
@@ -332,12 +334,17 @@ export default function TicketView() {
               </div>
               <div className="col-span-2">
                 <dt className="text-[11px] font-semibold uppercase tracking-[1.6px] text-teal">
-                  Local
+                  Concentração · {EVENT.meet.time}
+                </dt>
+                <dd className="text-lg font-bold">{EVENT.meet.place}</dd>
+                <dd className="text-[13px] text-[#b9bdd3]">{EVENT.meet.note}</dd>
+              </div>
+              <div className="col-span-2">
+                <dt className="text-[11px] font-semibold uppercase tracking-[1.6px] text-teal">
+                  Debates · {EVENT.venueTime}
                 </dt>
                 <dd className="text-lg font-bold">{EVENT.venue}</dd>
-                <dd className="text-[13px] text-[#b9bdd3]">
-                  ({EVENT.venueNote}) · Parque das Nações
-                </dd>
+                <dd className="text-[13px] text-[#b9bdd3]">{EVENT.venueNote} · Parque das Nações</dd>
               </div>
               <div className="col-span-2">
                 <dt className="text-[11px] font-semibold uppercase tracking-[1.6px] text-teal">
@@ -460,7 +467,7 @@ export default function TicketView() {
             onClick={async () => {
               const data = {
                 title: "Camp Summit 2026",
-                text: "Vou ao Camp Summit. 12 nov, 17h30, debaixo do toldo do Pavilhão de Portugal. Bilhete grátis:",
+                text: `Vou ao Camp Summit, 12 nov. ${WHERE_LINE} Bilhete grátis:`,
                 url: `${origin}/`,
               };
               try {

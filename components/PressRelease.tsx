@@ -61,7 +61,7 @@ export default function PressRelease() {
               que não investiu em habitação pública nem cooperativa.
             </p>
             <p>
-              O evento da acampada começa com uma concentração em frente à entrada da Web Summit a partir das 17h30 e vai contar
+              O evento da acampada começa com uma concentração em frente à entrada da Web Summit, na Alameda dos Oceanos, a partir das 17h30 e vai contar
               com debates sobre o direito à cidade e tecnologias digitais ao serviço da democracia a partir das 19h na Praça do
               Oriente.
             </p>

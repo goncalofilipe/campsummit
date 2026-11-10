@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Calendar } from "iconoir-react";
 import Image from "next/image";
 
-import { EVENT } from "@/lib/event";
+import { EVENT, WHERE_LINE } from "@/lib/event";
 
 import LogoSvg from "./Logo.svg";
 
@@ -102,13 +102,14 @@ export default function Hero() {
           </h1>
           <p className="mt-4 body text-white/90">
             Do outro lado da rua, a grande cimeira tecnológica vende o futuro da
-            cidade em pacotes premium. Debaixo do toldo do Pavilhão de Portugal,
-            discutimos quem lá vai poder morar.
+            cidade em pacotes premium. Na Praça do Oriente, discutimos quem lá vai
+            poder morar.
           </p>
           <p className="mt-3 body text-white/90">
             <strong className="font-semibold">
-              {EVENT.weekday}, 12 de novembro, às {EVENT.time}.
+              {EVENT.weekday}, 12 de novembro.
             </strong>{" "}
+            {WHERE_LINE}{" "}
             Debates, música e Assembleia Popular. Entrada livre. A renda,
             infelizmente, continua cara.
           </p>

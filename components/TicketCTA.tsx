@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "iconoir-react";
 import { cleanName, ticketIdFromEmail } from "@/lib/ticket";
+import { WHERE_LINE } from "@/lib/event";
 
 const STORE_KEY = "campsummit-ticket";
 
@@ -60,7 +61,7 @@ export default function TicketCTA() {
 
           <div className="relative mx-auto max-w-2xl text-center">
             <h2 className="text-[32px] font-bold leading-10 tracking-[0.1px] md:text-[40px] md:leading-12">
-              Garante o teu lugar debaixo do toldo
+              Garante o teu lugar na Praça do Oriente
             </h2>
             <p className="body mt-4 text-white/90">
               Bilhete grátis, único e com o teu nome. Sem lista de espera, ao
@@ -77,6 +78,9 @@ export default function TicketCTA() {
                 0 €
               </span>
             </div>
+            <p className="mx-auto mt-5 max-w-lg text-[15px] leading-6 text-white/90">
+              {WHERE_LINE}
+            </p>
 
             <form
               onSubmit={onSubmit}

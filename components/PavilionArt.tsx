@@ -8,7 +8,7 @@ export default function PavilionArt({ className = "" }: { className?: string }) 
     { x: 530, w: 90, c: "#00ACA8" },
   ];
   return (
-    <svg viewBox="0 0 720 520" className={className} role="img" aria-label="Ilustração de tendas debaixo da pala do Pavilhão de Portugal, à noite">
+    <svg viewBox="0 0 720 520" className={className} role="img" aria-label="Ilustração de tendas na Praça do Oriente, à noite">
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#0C1439" />
@@ -49,7 +49,7 @@ export default function PavilionArt({ className = "" }: { className?: string }) 
         </g>
       ))}
       <text x="360" y="96" textAnchor="middle" fill="#fff" fontFamily="Inter, sans-serif" fontWeight="700" fontSize="28" opacity=".9">
-        debaixo do toldo
+        praça do oriente
       </text>
     </svg>
   );

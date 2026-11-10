@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { PKPass } from "passkit-generator";
-import { EVENT, PROGRAM, LINKS, INSTAGRAM } from "@/lib/event";
+import { EVENT, PROGRAM, LINKS, INSTAGRAM, WHERE } from "@/lib/event";
 import {
   formatNumber,
   personNumber,
@@ -56,11 +56,18 @@ export async function GET(req: Request) {
     label: "PASSE POVO · ACESSO TOTAL",
     value: t.name,
   });
-  pass.secondaryFields.push({
-    key: "venue",
-    label: "LOCAL",
-    value: `${EVENT.venue} (${EVENT.venueNote})`,
-  });
+  pass.secondaryFields.push(
+    {
+      key: "meet",
+      label: `CONCENTRAÇÃO · ${EVENT.meet.time}`,
+      value: EVENT.meet.place,
+    },
+    {
+      key: "venue",
+      label: `DEBATES · ${EVENT.venueTime}`,
+      value: EVENT.venue,
+    },
+  );
   pass.auxiliaryFields.push(
     { key: "seat", label: "LUGAR", value: seatFor(t.id) },
     { key: "price", label: "PREÇO", value: "0 €" },
@@ -77,7 +84,7 @@ export async function GET(req: Request) {
       label: "Programa",
       value: PROGRAM.map((p) => `${p.time} ${p.title}`).join("\n"),
     },
-    { key: "address", label: "Morada", value: EVENT.address },
+    { key: "address", label: "Onde", value: `${WHERE.meet}.\n${WHERE.venue}.` },
     {
       key: "links",
       label: "Acampada",
@@ -101,7 +108,7 @@ export async function GET(req: Request) {
   pass.setLocations({
     latitude: EVENT.lat,
     longitude: EVENT.lng,
-    relevantText: "Camp Summit: é debaixo do toldo.",
+    relevantText: `Camp Summit: concentração às ${EVENT.meet.time} na ${EVENT.meet.place}.`,
   });
 
   return new Response(new Uint8Array(pass.getAsBuffer()), {
