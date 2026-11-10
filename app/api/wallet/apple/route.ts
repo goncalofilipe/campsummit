@@ -59,12 +59,12 @@ export async function GET(req: Request) {
   pass.secondaryFields.push(
     {
       key: "meet",
-      label: `CONCENTRAÇÃO · ${EVENT.meet.time}`,
+      label: `CONCENTRAÇÃO · ${EVENT.meet.hours.toUpperCase()}`,
       value: EVENT.meet.place,
     },
     {
       key: "venue",
-      label: `DEBATES · ${EVENT.venueTime}`,
+      label: `${EVENT.venueLabel} · ${EVENT.venueHours}`.toUpperCase(),
       value: EVENT.venue,
     },
   );
@@ -105,11 +105,18 @@ export async function GET(req: Request) {
     altText: t.id,
   });
   pass.setRelevantDate(new Date(EVENT.startISO));
-  pass.setLocations({
-    latitude: EVENT.lat,
-    longitude: EVENT.lng,
-    relevantText: `Camp Summit: concentração às ${EVENT.meet.time} na ${EVENT.meet.place}.`,
-  });
+  pass.setLocations(
+    {
+      latitude: EVENT.meet.lat,
+      longitude: EVENT.meet.lng,
+      relevantText: `Camp Summit: concentração das ${EVENT.meet.hours} aqui.`,
+    },
+    {
+      latitude: EVENT.venueLat,
+      longitude: EVENT.venueLng,
+      relevantText: `Camp Summit: conversa pública na ${EVENT.venue} até às 00h30.`,
+    },
+  );
 
   return new Response(new Uint8Array(pass.getAsBuffer()), {
     headers: {

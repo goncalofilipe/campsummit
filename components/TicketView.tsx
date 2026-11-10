@@ -157,10 +157,10 @@ async function ticketPNG(name: string, id: string, url: string): Promise<Blob> {
   value("12 nov 2026", 110, 815);
   label("Hora", 600, 760);
   value(EVENT.time, 600, 815);
-  label(`Concentração · ${EVENT.meet.time}`, 110, 895);
+  label(`Concentração · ${EVENT.meet.hours}`, 110, 895);
   value(EVENT.meet.place, 110, 945);
   value(EVENT.meet.note, 110, 985, 28, 400, "#b9bdd3");
-  label(`Debates · ${EVENT.venueTime}`, 110, 1050);
+  label(`${EVENT.venueLabel} · ${EVENT.venueHours}`, 110, 1050);
   value(EVENT.venue, 110, 1100);
   label("Lugar", 600, 1050);
   value(seatFor(id).replace("Praça · ", ""), 600, 1100, 36, 600);
@@ -334,14 +334,14 @@ export default function TicketView() {
               </div>
               <div className="col-span-2">
                 <dt className="text-[11px] font-semibold uppercase tracking-[1.6px] text-teal">
-                  Concentração · {EVENT.meet.time}
+                  Concentração · {EVENT.meet.hours}
                 </dt>
                 <dd className="text-lg font-bold">{EVENT.meet.place}</dd>
                 <dd className="text-[13px] text-[#b9bdd3]">{EVENT.meet.note}</dd>
               </div>
               <div className="col-span-2">
                 <dt className="text-[11px] font-semibold uppercase tracking-[1.6px] text-teal">
-                  Debates · {EVENT.venueTime}
+                  {EVENT.venueLabel} · {EVENT.venueHours}
                 </dt>
                 <dd className="text-lg font-bold">{EVENT.venue}</dd>
                 <dd className="text-[13px] text-[#b9bdd3]">{EVENT.venueNote} · Parque das Nações</dd>

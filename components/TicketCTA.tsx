@@ -72,7 +72,7 @@ export default function TicketCTA() {
                 12 nov
               </span>
               <span className="rounded-[160px] bg-navy px-5 py-1 text-xl font-medium md:text-2xl">
-                17h30
+                17h00
               </span>
               <span className="rounded-[160px] bg-white/20 px-5 py-1 text-xl font-medium md:text-2xl">
                 0 €

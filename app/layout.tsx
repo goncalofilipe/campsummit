@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Camp Summit 2026 · O futuro começa aqui. Not there.",
   description:
-    "A contra-cimeira da Acampada de Lisboa pelo direito à habitação. 12 de novembro de 2026. Concentração às 17h30 na Alameda dos Oceanos, em frente à entrada da Web Summit. Debates às 19h na Praça do Oriente. Entrada livre.",
+    "A contra-cimeira da Acampada de Lisboa pelo direito à habitação. 12 de novembro de 2026. Concentração na Alameda dos Oceanos, em frente ao Centro Comercial Vasco da Gama, das 17h às 19h. Iniciativa pública de conversa na Praça do Oriente, das 17h às 00h30. Entrada livre.",
   openGraph: {
     title: "Camp Summit 2026",
     description:
-      "12 nov · 17h30 concentração na Alameda dos Oceanos · 19h debates na Praça do Oriente. Bilhetes grátis.",
-    images: ["/rollup.png"],
+      "12 nov · Concentração na Alameda dos Oceanos, 17h às 19h · Conversa pública na Praça do Oriente, 17h às 00h30. Bilhetes grátis.",
+    images: ["/cartaz.png"],
     locale: "pt_PT",
   },
 };

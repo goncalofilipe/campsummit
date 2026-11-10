@@ -69,10 +69,10 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
               <div style="font:700 17px/24px ${font};color:#ffffff;">12 nov 2026</div>
               <div style="font:400 13px/18px ${font};color:#b9bdd3;">${EVENT.weekday}</div></td>
             <td width="67%" valign="top">
-              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Concentração · ${EVENT.meet.time}</div>
+              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Concentração · ${EVENT.meet.hours}</div>
               <div style="font:700 17px/24px ${font};color:#ffffff;">${EVENT.meet.place}</div>
               <div style="font:400 13px/18px ${font};color:#b9bdd3;">${EVENT.meet.note}</div>
-              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;margin-top:12px;">Debates · ${EVENT.venueTime}</div>
+              <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;margin-top:12px;">${EVENT.venueLabel} · ${EVENT.venueHours}</div>
               <div style="font:700 17px/24px ${font};color:#ffffff;">${EVENT.venue}</div>
               <div style="font:400 13px/18px ${font};color:#b9bdd3;">${EVENT.venueNote}</div></td>
           </tr></table>
@@ -163,7 +163,7 @@ Segue as acampadas: ${INSTAGRAM.map((i) => i.label).join(" · ")} · ${LINKS.sit
 Bilhete simbólico, entrada livre. Sátira política da Acampada de Lisboa, sem ligação ao Web Summit.`;
 
   return {
-    subject: `${name}, o teu bilhete para o Camp Summit (12 nov, 17h30)`,
+    subject: `${name}, o teu bilhete para o Camp Summit (12 nov, 17h)`,
     html,
     text,
   };
