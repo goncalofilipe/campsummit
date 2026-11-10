@@ -40,42 +40,32 @@ export default function PressRelease() {
 
         <article className="mx-auto mt-10 max-w-[720px] rounded-[12px] bg-white p-6 shadow-[0_8px_30px_rgba(12,20,57,.08)] md:p-10">
           <h3 className="text-2xl font-bold leading-8 text-navy">
-            Acampada de Lisboa apresenta o Camp Summit no Pavilhão de Portugal a
-            12 de novembro
+            Acampada de Lisboa apresenta o Camp Summit no Oriente a 12 de novembro
           </h3>
           <div className="body mt-5 space-y-4 text-navy/90">
             <p>
-              A Acampada de Lisboa pelo direito à habitação apresenta, no dia 12
-              de novembro, quinta-feira, o Camp Summit no Pavilhão de Portugal.
+              A Acampada de Lisboa pelo direito à habitação apresenta, no dia 12 de novembro, quinta-feira, o Camp Summit na
+              Praça do Oriente.
             </p>
             <p>
-              Na semana em que foi anunciada a intenção de venda de 10 terrenos
-              públicos por parte da Câmara Municipal de Lisboa por 60 milhões de
-              euros, cerca do mesmo valor já dispensado pelo executivo de Carlos
-              Moedas para o Web Summit, a acampada convida todas as pessoas que
-              participam e simpatizam com o movimento da habitação a juntar-se.
+              Na semana em que foi anunciada a intenção de venda de 10 terrenos públicos por parte da Câmara Municipal de
+              Lisboa por 60 milhões de euros, cerca do mesmo valor já dispensado pelo executivo de Carlos Moedas para o Web
+              Summit, a acampada convida todas as pessoas que participam e simpatizam com o movimento da habitação a juntar-se.
               Incluindo todos os participantes do evento Web Summit.
             </p>
             <p>
-              O Web Summit, sobretudo desde o mandato de Carlos Moedas, tem sido
-              um instrumento político que configura de forma inequívoca a visão
-              que a elite financeira portuguesa tem para as cidades do nosso
-              país: uma montra de luxo à beira-mar plantada, onde as pessoas que
-              vivem do seu salário não conseguem pagar a renda da sua casa, não
-              conseguem aceder a um crédito que seja suficiente para comprar uma
-              casa perto do seu local de trabalho, num país que não investiu em
-              habitação pública nem cooperativa.
+              O Web Summit, sobretudo desde o mandato de Carlos Moedas, tem sido um instrumento político que configura de forma
+              inequívoca a visão que a elite financeira portuguesa tem para as cidades do nosso país: uma montra de luxo à
+              beira-mar plantada, onde as pessoas que vivem do seu salário não conseguem pagar a renda da sua casa, não
+              conseguem aceder a um crédito que seja suficiente para comprar uma casa perto do seu local de trabalho, num país
+              que não investiu em habitação pública nem cooperativa.
             </p>
             <p>
-              O evento da acampada sobre Democracia e Tecnologia vai acontecer
-              debaixo da pala do Pavilhão de Portugal a partir das 17h30 e vai
-              contar com debates sobre o direito à cidade e tecnologias digitais
-              ao serviço da democracia.
+              O evento da acampada começa com uma concentração em frente à entrada da Web Summit a partir das 17h30 e vai contar
+              com debates sobre o direito à cidade e tecnologias digitais ao serviço da democracia a partir das 19h na Praça do
+              Oriente.
             </p>
-            <p>
-              A partir das 21h, no mesmo lugar, será realizada a Assembleia
-              Popular da Acampada de Lisboa.
-            </p>
+            <p>A partir das 21h, no mesmo lugar, será realizada a Assembleia Popular da Acampada de Lisboa.</p>
           </div>
         </article>
 
