@@ -63,37 +63,66 @@ export default function TicketCTA() {
               Garante o teu lugar debaixo do toldo
             </h2>
             <p className="body mt-4 text-white/90">
-              Bilhete grátis, único e com o teu nome. Sem lista de espera, ao contrário da habitação municipal.
+              Bilhete grátis, único e com o teu nome. Sem lista de espera, ao
+              contrário da habitação municipal.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-2.5">
-              <span className="rounded-[160px] border-2 border-white bg-magenta px-5 py-1 text-xl font-medium md:text-2xl">11 nov</span>
-              <span className="rounded-[160px] bg-navy px-5 py-1 text-xl font-medium md:text-2xl">19h00</span>
-              <span className="rounded-[160px] bg-white/20 px-5 py-1 text-xl font-medium md:text-2xl">0 €</span>
+              <span className="rounded-[160px] border-2 border-white bg-magenta px-5 py-1 text-xl font-medium md:text-2xl">
+                12 nov
+              </span>
+              <span className="rounded-[160px] bg-navy px-5 py-1 text-xl font-medium md:text-2xl">
+                17h30
+              </span>
+              <span className="rounded-[160px] bg-white/20 px-5 py-1 text-xl font-medium md:text-2xl">
+                0 €
+              </span>
             </div>
 
-            <form onSubmit={onSubmit} className="mx-auto mt-10 grid max-w-xl gap-y-4 text-left grid-cols-1">
+            <form
+              onSubmit={onSubmit}
+              className="mx-auto mt-10 grid max-w-xl gap-y-4 text-left grid-cols-1"
+            >
               <div>
-                <label htmlFor="t-name" className="field-label">Nome no bilhete <span aria-hidden="true">*</span></label>
-                <input id="t-name" name="name" required maxLength={60} placeholder="Ex.: Maria Silva" className="field" autoComplete="name" />
+                <label htmlFor="t-name" className="field-label">
+                  Nome no bilhete <span aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="t-name"
+                  name="name"
+                  required
+                  maxLength={60}
+                  placeholder="Ex.: Maria Silva"
+                  className="field"
+                  autoComplete="name"
+                />
               </div>
               {/*<div>
                 <label htmlFor="t-email" className="field-label">Email <span aria-hidden="true">*</span></label>
                 <input id="t-email" name="email" type="email" required placeholder="o.teu@email.pt" className="field" autoComplete="email" />
               </div>*/}
-              <button type="submit" disabled={busy} className="btn-primary sm:col-span-2 disabled:opacity-70">
+              <button
+                type="submit"
+                disabled={busy}
+                className="btn-primary sm:col-span-2 disabled:opacity-70"
+              >
                 {busy ? "A imprimir o teu bilhete…" : "Gerar o meu bilhete"}
                 {!busy && <ArrowRight width={20} height={20} />}
               </button>
               <p className="text-center text-[13px] text-white/75 sm:col-span-2">
                 {/*O email serve para te enviarmos o bilhete e para o código ser sempre o mesmo.*/}
-                Não vendemos a tua informação a ninguém. Nem a fundos imobiliários. O bilhete é simbólico: não precisas dele para participar.
+                Não vendemos a tua informação a ninguém. Nem a fundos
+                imobiliários. O bilhete é simbólico: não precisas dele para
+                participar.
               </p>
             </form>
 
             {saved && (
               <p className="mt-6 text-sm text-white/90">
                 Já tens bilhete, {saved.n}.{" "}
-                <a className="font-semibold underline" href={`/bilhete?${new URLSearchParams(saved).toString()}`}>
+                <a
+                  className="font-semibold underline"
+                  href={`/bilhete?${new URLSearchParams(saved).toString()}`}
+                >
                   Abrir o meu bilhete
                 </a>
               </p>

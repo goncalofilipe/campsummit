@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Camp Summit 2026 · O futuro começa aqui. Not there.",
   description:
-    "A contra-cimeira da Acampada de Lisboa pelo direito à habitação. 12 de novembro de 2026, 19h00, Pavilhão de Portugal (debaixo do toldo). Entrada livre.",
+    "A contra-cimeira da Acampada de Lisboa pelo direito à habitação. 12 de novembro de 2026, 17h30, Pavilhão de Portugal (debaixo do toldo). Entrada livre.",
   openGraph: {
     title: "Camp Summit 2026",
     description:
