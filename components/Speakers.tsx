@@ -17,9 +17,10 @@ export default function Speakers() {
   return (
     <section id="oradores" className="section bg-white pt-0 md:pt-0">
       <div className="container-cs">
-        <h2 className="h2 text-center">Oradores: o povo português</h2>
-        <p className="body mx-auto mt-3 max-w-xl text-center text-muted">
-          Quem fala é quem vive na cidade, ou quem já foi empurrado para fora dela.
+        <h2 className="h2 text-center">Oradores: o povo que vive em Portugal</h2>
+        <p className="body mx-auto mt-3 max-w-2xl text-center text-muted">
+          Desta vez quem fala é quem vive na cidade, com o esforço do seu trabalho, seja lá qual for a sua nacionalidade,
+          profissão, género ou sotaque.
         </p>
 
         <ul className="no-scrollbar -mx-4 mt-10 flex snap-x gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 md:grid-cols-5">

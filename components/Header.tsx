@@ -28,7 +28,7 @@ const NAV: {
   {
     label: "Oradores",
     items: [
-      { label: "O povo português", href: "#oradores" },
+      { label: "O povo que vive em Portugal", href: "#oradores" },
       { label: "Quero falar na assembleia", href: "#bilhete" },
     ],
   },
