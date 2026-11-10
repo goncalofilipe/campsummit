@@ -2,17 +2,22 @@
 
 import { useState } from "react";
 import { Calendar } from "iconoir-react";
-import Image from 'next/image'
+import Image from "next/image";
 
 import { EVENT } from "@/lib/event";
 
-import LogoSvg from './Logo.svg'
+import LogoSvg from "./Logo.svg";
 
 function Crowd() {
   // silhuetas de público e tendas no fundo do palco
   const heads = Array.from({ length: 42 }, (_, i) => i);
   return (
-    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-40 w-full" aria-hidden="true">
+    <svg
+      viewBox="0 0 1440 160"
+      preserveAspectRatio="none"
+      className="absolute inset-x-0 bottom-0 h-40 w-full"
+      aria-hidden="true"
+    >
       <g fill="#060a20" opacity=".9">
         {heads.map((i) => {
           const x = i * 35 + (i % 3) * 6;
@@ -24,7 +29,10 @@ function Crowd() {
             </g>
           );
         })}
-        <path d="M120 160 190 70 260 160Z M1180 160 1260 60 1340 160Z M640 160 700 84 760 160Z" fill="#0a1030" />
+        <path
+          d="M120 160 190 70 260 160Z M1180 160 1260 60 1340 160Z M640 160 700 84 760 160Z"
+          fill="#0a1030"
+        />
       </g>
     </svg>
   );
@@ -34,12 +42,33 @@ export default function Hero() {
   const [paused, setPaused] = useState(false);
 
   return (
-    <section id="top" className={`relative overflow-hidden ${paused ? "paused" : ""}`}>
+    <section
+      id="top"
+      className={`relative overflow-hidden ${paused ? "paused" : ""}`}
+    >
       {/* Fundo: palco escuro (desktop) / gradiente da marca (mobile) */}
-      <div className="absolute inset-0 md:hidden" style={{ background: "linear-gradient(160deg,#DE0E7B 0%,#6B4AA4 55%,#00ACA8 100%)" }} />
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{
+          background:
+            "linear-gradient(160deg,#DE0E7B 0%,#6B4AA4 55%,#00ACA8 100%)",
+        }}
+      />
       <div className="absolute inset-0 hidden bg-[#070b24] md:block">
-        <div className="absolute inset-0" style={{ background: "radial-gradient(70% 55% at 50% -5%, rgba(222,14,123,.75), transparent 70%)" }} />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(60% 45% at 50% 108%, rgba(0,172,168,.6), transparent 70%)" }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(70% 55% at 50% -5%, rgba(222,14,123,.75), transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(60% 45% at 50% 108%, rgba(0,172,168,.6), transparent 70%)",
+          }}
+        />
         {[12, 32, 68, 88].map((left, i) => (
           <div
             key={left}
@@ -72,16 +101,30 @@ export default function Hero() {
             O futuro começa aqui. <em className="font-light">Not there.</em>
           </h1>
           <p className="mt-4 body text-white/90">
-            Do outro lado da rua, a grande cimeira tecnológica vende o futuro da cidade em pacotes premium. Debaixo do toldo
-            do Pavilhão de Portugal, discutimos quem lá vai poder morar.
+            Do outro lado da rua, a grande cimeira tecnológica vende o futuro da
+            cidade em pacotes premium. Debaixo do toldo do Pavilhão de Portugal,
+            discutimos quem lá vai poder morar.
           </p>
           <p className="mt-3 body text-white/90">
-            <strong className="font-semibold">{EVENT.weekday}, 11 de novembro, às {EVENT.time}.</strong> Debates, música e
-            Assembleia Popular. Entrada livre. A renda, infelizmente, continua cara.
+            <strong className="font-semibold">
+              {EVENT.weekday}, 12 de novembro, às {EVENT.time}.
+            </strong>{" "}
+            Debates, música e Assembleia Popular. Entrada livre. A renda,
+            infelizmente, continua cara.
           </p>
           <div className="mt-auto flex flex-col gap-3 pt-7 items-center">
-            <a href="#bilhete" className="btn-primary w-full md:w-fit lg:w-full">Obter bilhete grátis</a>
-            <a href="#programa" className="btn-secondary w-full md:w-fit lg:w-full">Ver programa</a>
+            <a
+              href="#bilhete"
+              className="btn-primary w-full md:w-fit lg:w-full"
+            >
+              Obter bilhete grátis
+            </a>
+            <a
+              href="#programa"
+              className="btn-secondary w-full md:w-fit lg:w-full"
+            >
+              Ver programa
+            </a>
           </div>
         </div>
       </div>

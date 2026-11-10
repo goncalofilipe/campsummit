@@ -2,7 +2,11 @@ import { EVENT, PROGRAM, LINKS, INSTAGRAM } from "./event";
 import { formatNumber, personNumber, POPULATION, seatFor } from "./ticket";
 
 const esc = (s: string) =>
-  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 
 type Args = { name: string; id: string; ticketUrl: string; siteUrl: string };
 
@@ -20,7 +24,7 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
         <td width="72" valign="top" style="padding:8px 0;font:700 15px/22px ${font};color:#DE0E7B;">${p.time}</td>
         <td valign="top" style="padding:8px 0;font:600 15px/22px ${font};color:#0C1439;">${esc(p.title)}
           <div style="font:400 13px/20px ${font};color:#646464;">${esc(p.desc)}</div></td>
-      </tr>`
+      </tr>`,
   ).join("");
 
   const html = `<!doctype html>
@@ -32,7 +36,7 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
 <title>O teu bilhete para o Camp Summit</title>
 </head>
 <body style="margin:0;padding:0;background:#F6F6F7;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${n}, o teu lugar debaixo do toldo está garantido. 11 nov, 19h00, Pavilhão de Portugal.</div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${n}, o teu lugar debaixo do toldo está garantido. 12 nov, 17h30, Pavilhão de Portugal.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F6F6F7" style="background:#F6F6F7;">
 <tr><td align="center" style="padding:32px 12px;">
   <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;">
@@ -42,7 +46,7 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
       <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
         <td valign="middle"><img src="${siteUrl}/email/mark.png" width="40" height="40" alt="" style="display:block;border:0;"></td>
         <td valign="middle" style="padding-left:10px;font:700 22px/24px ${font};color:#0C1439;letter-spacing:-0.5px;">camp summit
-          <div style="font:600 10px/14px ${font};color:#646464;letter-spacing:1.6px;text-transform:uppercase;">Lisboa · 11 nov 2026</div></td>
+          <div style="font:600 10px/14px ${font};color:#646464;letter-spacing:1.6px;text-transform:uppercase;">Lisboa · 12 nov 2026</div></td>
       </tr></table>
     </td></tr>
 
@@ -62,7 +66,7 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
             <td width="33%" valign="top" style="padding-right:8px;">
               <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Data</div>
-              <div style="font:700 17px/24px ${font};color:#ffffff;">11 nov 2026</div>
+              <div style="font:700 17px/24px ${font};color:#ffffff;">12 nov 2026</div>
               <div style="font:400 13px/18px ${font};color:#b9bdd3;">${EVENT.weekday}</div></td>
             <td width="27%" valign="top" style="padding-right:8px;">
               <div style="font:600 11px/16px ${font};color:#00ACA8;letter-spacing:1.6px;text-transform:uppercase;">Hora</div>
@@ -140,7 +144,7 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
 O teu lugar debaixo do toldo está garantido.
 
 CAMP SUMMIT 2026
-${EVENT.weekday}, 11 de novembro de 2026, ${EVENT.time}
+${EVENT.weekday}, 12 de novembro de 2026, ${EVENT.time}
 ${EVENT.venue} (${EVENT.venueNote})
 
 Código: ${id}
@@ -156,5 +160,9 @@ Segue as acampadas: ${INSTAGRAM.map((i) => i.label).join(" · ")} · ${LINKS.sit
 
 Bilhete simbólico, entrada livre. Sátira política da Acampada de Lisboa, sem ligação ao Web Summit.`;
 
-  return { subject: `${name}, o teu bilhete para o Camp Summit (11 nov, 19h00)`, html, text };
+  return {
+    subject: `${name}, o teu bilhete para o Camp Summit (12 nov, 17h30)`,
+    html,
+    text,
+  };
 }

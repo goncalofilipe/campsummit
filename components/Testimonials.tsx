@@ -3,7 +3,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "iconoir-react";
 
-type T = { name: string; role: string; initials: string; quote: string; note: string; source: string; date: string; href: string };
+type T = {
+  name: string;
+  role: string;
+  initials: string;
+  quote: string;
+  note: string;
+  source: string;
+  date: string;
+  href: string;
+};
 
 // Citações verbatim, com fonte. O comentário em "note" é nosso e está separado da citação.
 const ITEMS: T[] = [
@@ -12,7 +21,7 @@ const ITEMS: T[] = [
     role: "Ministro da Administração Interna",
     initials: "LN",
     quote: "as acampadas, os acampamentos acabaram",
-    note: "Vemo-nos dia 11.",
+    note: "Vemo-nos dia 12.",
     source: "24 Notícias",
     date: "20 out 2026",
     href: "https://24noticias.sapo.pt/atualidade/artigos/luis-neves-garante-que-as-acampadas-os-acampamentos-acabaram",
@@ -31,7 +40,8 @@ const ITEMS: T[] = [
     name: "Luís Montenegro",
     role: "Primeiro-Ministro",
     initials: "LM",
-    quote: "Não há razão em Portugal para se importarem modelos de protesto violentos",
+    quote:
+      "Não há razão em Portugal para se importarem modelos de protesto violentos",
     note: "De acordo. Importem antes modelos de habitação pública.",
     source: "ECO",
     date: "3 nov 2026",
@@ -41,7 +51,8 @@ const ITEMS: T[] = [
     name: "Luís Neves",
     role: "Ministro da Administração Interna",
     initials: "LN",
-    quote: "Atuaram com todo o profissionalismo, todo o saber e com toda a calma",
+    quote:
+      "Atuaram com todo o profissionalismo, todo o saber e com toda a calma",
     note: "No Rossio, a operação acabou com 55 pessoas detidas.",
     source: "24 Notícias",
     date: "20 out 2026",
@@ -51,7 +62,8 @@ const ITEMS: T[] = [
     name: "Carlos Moedas",
     role: "Presidente da Câmara Municipal de Lisboa",
     initials: "CM",
-    quote: "É uma feira de Natal que é responsabilidade da nossa Associação da Baixa Pombalina",
+    quote:
+      "É uma feira de Natal que é responsabilidade da nossa Associação da Baixa Pombalina",
     note: "As farturas têm prioridade.",
     source: "TVI / Lusa",
     date: "3 nov 2026",
@@ -71,7 +83,8 @@ const ITEMS: T[] = [
     name: "Luís Neves",
     role: "Ministro da Administração Interna",
     initials: "LN",
-    quote: "O meu lugar está permanentemente à disponibilidade do sr. primeiro-ministro",
+    quote:
+      "O meu lugar está permanentemente à disponibilidade do sr. primeiro-ministro",
     note: "O nosso toldo também está disponível.",
     source: "SOL / Lusa",
     date: "1 nov 2026",
@@ -81,7 +94,8 @@ const ITEMS: T[] = [
     name: "Carlos Moedas",
     role: "Presidente da Câmara Municipal de Lisboa",
     initials: "CM",
-    quote: "Aquilo que eu peço é calma e serenidade, calma e serenidade a todas as partes",
+    quote:
+      "Aquilo que eu peço é calma e serenidade, calma e serenidade a todas as partes",
     note: "Os senhorios também estão incluídos?",
     source: "TVI / Lusa",
     date: "3 nov 2026",
@@ -100,7 +114,16 @@ const ITEMS: T[] = [
 ];
 
 // Fotografias do Wikimedia Commons, recortadas. Licenças e autores no crédito por baixo do carrossel.
-const PHOTOS: Record<string, { src: string; author: string; license: string; licenseHref: string; file: string }> = {
+const PHOTOS: Record<
+  string,
+  {
+    src: string;
+    author: string;
+    license: string;
+    licenseHref: string;
+    file: string;
+  }
+> = {
   "Luís Montenegro": {
     src: "/testemunhos/montenegro.jpg",
     author: "Goncalo Shox",
@@ -132,7 +155,9 @@ export default function Testimonials() {
   // cartões por página (1 no telemóvel, 3 no desktop)
   const perPage = (el: HTMLUListElement) => {
     const card = el.children[0] as HTMLElement | undefined;
-    return card ? Math.max(1, Math.round(el.clientWidth / card.offsetWidth)) : 1;
+    return card
+      ? Math.max(1, Math.round(el.clientWidth / card.offsetWidth))
+      : 1;
   };
 
   const measure = useCallback(() => {
@@ -141,7 +166,9 @@ export default function Testimonials() {
     const per = perPage(el);
     const p = Math.ceil(el.children.length / per);
     const cards = Array.from(el.children) as HTMLElement[];
-    const first = cards.findIndex((c) => c.offsetLeft - el.offsetLeft >= el.scrollLeft - 4);
+    const first = cards.findIndex(
+      (c) => c.offsetLeft - el.offsetLeft >= el.scrollLeft - 4,
+    );
     setPages(p);
     setPage(Math.min(p - 1, Math.ceil(Math.max(0, first) / per)));
   }, []);
@@ -157,7 +184,10 @@ export default function Testimonials() {
     if (!el) return;
     const next = (p + pages) % pages;
     const card = el.children[next * perPage(el)] as HTMLElement | undefined;
-    el.scrollTo({ left: card ? card.offsetLeft - el.offsetLeft : 0, behavior: "smooth" });
+    el.scrollTo({
+      left: card ? card.offsetLeft - el.offsetLeft : 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -165,7 +195,8 @@ export default function Testimonials() {
       <div className="container-cs">
         <h2 className="h2 text-center">O que dizem de nós</h2>
         <p className="body mx-auto mt-3 max-w-xl text-center text-muted">
-          Citações reais, com fonte. A frase a cinzento por baixo de cada uma é comentário nosso.
+          Citações reais, com fonte. A frase a cinzento por baixo de cada uma é
+          comentário nosso.
         </p>
 
         <div className="relative mt-10">
@@ -187,7 +218,13 @@ export default function Testimonials() {
                 key={i}
                 className="flex w-full shrink-0 snap-start flex-col overflow-hidden rounded-[12px] border-2 border-navy md:w-[calc((100%-40px)/3)]"
               >
-                <div className="relative h-20" style={{ background: "linear-gradient(90deg,#0C1439 0%,#6B4AA4 55%,#DE0E7B 100%)" }}>
+                <div
+                  className="relative h-20"
+                  style={{
+                    background:
+                      "linear-gradient(90deg,#0C1439 0%,#6B4AA4 55%,#DE0E7B 100%)",
+                  }}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={PHOTOS[t.name]?.src}
@@ -201,9 +238,16 @@ export default function Testimonials() {
                 <div className="flex flex-1 flex-col items-center px-6 pb-6 pt-14 text-center">
                   <p className="font-bold text-navy">{t.name}</p>
                   <p className="text-[13px] text-muted">{t.role}</p>
-                  <blockquote className="mt-4 flex-1 text-lg font-semibold leading-7 text-navy">«{t.quote}»</blockquote>
+                  <blockquote className="mt-4 flex-1 text-lg font-semibold leading-7 text-navy">
+                    «{t.quote}»
+                  </blockquote>
                   <p className="mt-4 text-sm italic text-muted">{t.note}</p>
-                  <a href={t.href} target="_blank" rel="noopener" className="mt-4 text-xs font-semibold text-teal-dark underline">
+                  <a
+                    href={t.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="mt-4 text-xs font-semibold text-teal-dark underline"
+                  >
                     {t.source}, {t.date}
                   </a>
                 </div>
@@ -220,7 +264,11 @@ export default function Testimonials() {
           </button>*/}
         </div>
 
-        <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Páginas">
+        <div
+          className="mt-6 flex justify-center gap-2"
+          role="tablist"
+          aria-label="Páginas"
+        >
           {Array.from({ length: pages }, (_, i) => (
             <button
               key={i}
@@ -238,15 +286,32 @@ export default function Testimonials() {
           Fotografias recortadas, via Wikimedia Commons:{" "}
           {Object.entries(PHOTOS).map(([name, p], i, arr) => (
             <span key={name}>
-              <a href={p.file} target="_blank" rel="noopener" className="underline">{name}</a>, por {p.author} (
-              <a href={p.licenseHref} target="_blank" rel="noopener" className="underline">{p.license}</a>)
-              {i < arr.length - 1 ? "; " : "."}
+              <a
+                href={p.file}
+                target="_blank"
+                rel="noopener"
+                className="underline"
+              >
+                {name}
+              </a>
+              , por {p.author} (
+              <a
+                href={p.licenseHref}
+                target="_blank"
+                rel="noopener"
+                className="underline"
+              >
+                {p.license}
+              </a>
+              ){i < arr.length - 1 ? "; " : "."}
             </span>
           ))}
         </p>
 
         <div className="mt-10 flex justify-center">
-          <a href="#programa" className="btn-section">Responder na Assembleia Popular</a>
+          <a href="#programa" className="btn-section">
+            Responder na Assembleia Popular
+          </a>
         </div>
       </div>
     </section>

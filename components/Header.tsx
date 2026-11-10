@@ -5,7 +5,10 @@ import { NavArrowDown, Menu, Xmark, User, HandCard } from "iconoir-react";
 import Logo from "./Logo";
 import { INSTAGRAM, LINKS } from "@/lib/event";
 
-const NAV: { label: string; items: { label: string; href: string; external?: boolean }[] }[] = [
+const NAV: {
+  label: string;
+  items: { label: string; href: string; external?: boolean }[];
+}[] = [
   {
     label: "Evento",
     items: [
@@ -17,7 +20,7 @@ const NAV: { label: string; items: { label: string; href: string; external?: boo
   {
     label: "Programa",
     items: [
-      { label: "19h00 · Cidade para quem nela vive", href: "#programa" },
+      { label: "17h30 · Cidade para quem nela vive", href: "#programa" },
       { label: "20h00 · Democracy and Tech", href: "#programa" },
       { label: "21h00 · Assembleia Popular", href: "#programa" },
     ],
@@ -48,7 +51,11 @@ const NAV: { label: string; items: { label: string; href: string; external?: boo
   {
     label: "Acampada",
     items: [
-      ...INSTAGRAM.map((i) => ({ label: i.label, href: i.href, external: true })),
+      ...INSTAGRAM.map((i) => ({
+        label: i.label,
+        href: i.href,
+        external: true,
+      })),
       { label: LINKS.site.label, href: LINKS.site.href, external: true },
     ],
   },
@@ -63,7 +70,8 @@ export default function Header() {
     const close = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(null);
     };
-    const esc = (e: KeyboardEvent) => e.key === "Escape" && (setOpen(null), setMobile(false));
+    const esc = (e: KeyboardEvent) =>
+      e.key === "Escape" && (setOpen(null), setMobile(false));
     document.addEventListener("click", close);
     document.addEventListener("keydown", esc);
     return () => {
@@ -90,7 +98,11 @@ export default function Header() {
                   className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold tracking-[0.5px] text-navy hover:bg-iconbtn"
                 >
                   {group.label}
-                  <NavArrowDown width={16} height={16} className={`transition ${open === i ? "rotate-180" : ""}`} />
+                  <NavArrowDown
+                    width={16}
+                    height={16}
+                    className={`transition ${open === i ? "rotate-180" : ""}`}
+                  />
                 </button>
                 {open === i && (
                   <div className="absolute left-0 top-full mt-2 min-w-[260px] rounded-xl border border-line bg-white p-2 shadow-[0_12px_32px_rgba(12,20,57,0.12)]">
@@ -114,7 +126,11 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href="#bilhete" className="btn-nav hidden md:inline-flex" style={{ background: "var(--brand-gradient)" }}>
+          <a
+            href="#bilhete"
+            className="btn-nav hidden md:inline-flex"
+            style={{ background: "var(--brand-gradient)" }}
+          >
             <HandCard width={18} height={18} />
             Bilhete grátis
           </a>
@@ -143,7 +159,11 @@ export default function Header() {
             aria-expanded={mobile}
             onClick={() => setMobile(!mobile)}
           >
-            {mobile ? <Xmark width={26} height={26} /> : <Menu width={26} height={26} />}
+            {mobile ? (
+              <Xmark width={26} height={26} />
+            ) : (
+              <Menu width={26} height={26} />
+            )}
           </button>
         </div>
       </div>
@@ -152,7 +172,9 @@ export default function Header() {
         <div className="fixed inset-x-0 bottom-0 top-20 overflow-y-auto bg-white px-4 pb-10 lg:hidden">
           {NAV.map((group) => (
             <div key={group.label} className="border-b border-line py-4">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[1.5px] text-muted">{group.label}</p>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[1.5px] text-muted">
+                {group.label}
+              </p>
               {group.items.map((it) => (
                 <a
                   key={it.label}
@@ -167,7 +189,11 @@ export default function Header() {
               ))}
             </div>
           ))}
-          <a href="#bilhete" onClick={() => setMobile(false)} className="btn-primary mt-6 w-full">
+          <a
+            href="#bilhete"
+            onClick={() => setMobile(false)}
+            className="btn-primary mt-6 w-full"
+          >
             Obter bilhete grátis
           </a>
         </div>

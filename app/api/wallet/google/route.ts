@@ -10,7 +10,8 @@ const b64url = (s: string | Buffer) => Buffer.from(s).toString("base64url");
 const t = (value: string) => ({ defaultValue: { language: "pt-PT", value } });
 
 export async function GET(req: Request) {
-  if (!googleConfigured()) return new Response("Google Wallet não configurado", { status: 501 });
+  if (!googleConfigured())
+    return new Response("Google Wallet não configurado", { status: 501 });
   const p = readTicketParams(req);
   if (!p) return new Response("Bilhete inválido", { status: 400 });
 
@@ -33,18 +34,40 @@ export async function GET(req: Request) {
           classId,
           state: "ACTIVE",
           hexBackgroundColor: "#0C1439",
-          logo: { sourceUri: { uri: `${site}/wallet-logo.png` }, contentDescription: t("Camp Summit") },
-          cardTitle: t("camp summit · 11 nov 2026"),
+          logo: {
+            sourceUri: { uri: `${site}/wallet-logo.png` },
+            contentDescription: t("Camp Summit"),
+          },
+          cardTitle: t("camp summit · 12 nov 2026"),
           subheader: t("Passe povo · Acesso total"),
           header: t(p.name),
           textModulesData: [
-            { id: "when", header: "Data e hora", body: `${EVENT.weekday}, ${EVENT.dateLong}, ${EVENT.time}` },
-            { id: "where", header: "Local", body: `${EVENT.venue} (${EVENT.venueNote})` },
+            {
+              id: "when",
+              header: "Data e hora",
+              body: `${EVENT.weekday}, ${EVENT.dateLong}, ${EVENT.time}`,
+            },
+            {
+              id: "where",
+              header: "Local",
+              body: `${EVENT.venue} (${EVENT.venueNote})`,
+            },
             { id: "seat", header: "Lugar", body: seatFor(p.id) },
-            { id: "program", header: "Programa", body: PROGRAM.map((x) => `${x.time} ${x.title}`).join("\n") },
+            {
+              id: "program",
+              header: "Programa",
+              body: PROGRAM.map((x) => `${x.time} ${x.title}`).join("\n"),
+            },
           ],
-          barcode: { type: "QR_CODE", value: ticketUrl(site, p.name, p.id), alternateText: p.id },
-          validTimeInterval: { start: { date: EVENT.startISO }, end: { date: EVENT.endISO } },
+          barcode: {
+            type: "QR_CODE",
+            value: ticketUrl(site, p.name, p.id),
+            alternateText: p.id,
+          },
+          validTimeInterval: {
+            start: { date: EVENT.startISO },
+            end: { date: EVENT.endISO },
+          },
         },
       ],
     },
@@ -52,7 +75,9 @@ export async function GET(req: Request) {
 
   const header = { alg: "RS256", typ: "JWT" };
   const unsigned = `${b64url(JSON.stringify(header))}.${b64url(JSON.stringify(payload))}`;
-  const signature = createSign("RSA-SHA256").update(unsigned).sign(pem(process.env.GOOGLE_WALLET_SA_PRIVATE_KEY)!);
+  const signature = createSign("RSA-SHA256")
+    .update(unsigned)
+    .sign(pem(process.env.GOOGLE_WALLET_SA_PRIVATE_KEY)!);
   const jwt = `${unsigned}.${b64url(signature)}`;
 
   return Response.redirect(`https://pay.google.com/gp/v/save/${jwt}`, 302);
