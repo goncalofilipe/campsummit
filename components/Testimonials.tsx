@@ -210,14 +210,14 @@ export default function Testimonials() {
               </li>
             ))}
           </ul>
-          <button
+          {/*<button
             type="button"
             onClick={() => go(page + 1)}
             aria-label="Seguintes"
             className="absolute -right-2 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-iconbtn text-navy hover:bg-line md:-right-14 md:inline-flex"
           >
             <ArrowRight width={20} height={20} />
-          </button>
+          </button>*/}
         </div>
 
         <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Páginas">

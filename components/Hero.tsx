@@ -1,8 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar, Pause, Play } from "iconoir-react";
+import { Calendar } from "iconoir-react";
+import Image from 'next/image'
+
 import { EVENT } from "@/lib/event";
+
+import LogoSvg from './Logo.svg'
 
 function Crowd() {
   // silhuetas de público e tendas no fundo do palco
@@ -52,43 +56,19 @@ export default function Hero() {
         <Crowd />
       </div>
 
-      <div className="container-cs relative grid gap-4 py-8 md:grid-cols-3 md:gap-5 md:py-14 lg:max-w-[1180px]">
+      <div className="container-cs relative grid gap-4 py-8 md:grid-cols-5 md:gap-5 md:py-14 lg:max-w-295">
         {/* Cartão vídeo (2/3) */}
-        <div className="order-2 rounded-[24px] border border-white/15 bg-[#0C1439]/55 p-3 backdrop-blur-md md:order-1 md:col-span-2">
-          <div className="relative aspect-[16/11] overflow-hidden rounded-[16px] md:aspect-auto md:h-full md:min-h-[440px]">
-            <div
-              className="absolute inset-0 scale-125 bg-cover bg-center opacity-70 blur-2xl"
-              style={{ backgroundImage: "url(/rollup.png)" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0C1439]/80 via-transparent to-[#0C1439]/80" />
-            <div
-              role="img"
-              aria-label="Cartaz do Camp Summit: Contra-Web Summit, 11 novembro 2026, 19h00, Pavilhão de Portugal (debaixo do toldo)"
-              className="pan absolute inset-y-0 left-1/2 w-[46%] max-w-[300px] -translate-x-1/2 bg-no-repeat shadow-2xl md:w-[38%]"
-              style={{ backgroundImage: "url(/rollup.png)", backgroundSize: "100% auto" }}
-            />
-            <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/45 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[1.5px] text-white backdrop-blur">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-magenta" />
-              Em direto do toldo
-            </span>
-            <button
-              type="button"
-              onClick={() => setPaused(!paused)}
-              aria-label={paused ? "Retomar" : "Pausar"}
-              className="absolute bottom-4 right-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-navy transition hover:bg-white"
-            >
-              {paused ? <Play width={20} height={20} /> : <Pause width={20} height={20} />}
-            </button>
-          </div>
+        <div className="max-lg:hidden order-1 rounded-3xl border border-white/15 bg-nay/55 p-3 backdrop-blur-md lg:order-2 lg:col-span-3 bg-white flex justify-center items-center">
+          <Image src={LogoSvg} alt="Camp Summit logo" />
         </div>
 
         {/* Cartão de texto (1/3) */}
-        <div className="order-1 flex flex-col rounded-[24px] border border-white/15 bg-[#0C1439]/55 p-6 text-white backdrop-blur-md md:order-2 md:p-7">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[13px] font-semibold uppercase tracking-[1.6px]">
-            <Calendar width={16} height={16} />
+        <div className="order-2 flex flex-col rounded-3xl border border-white/15 bg-navy/55 p-6 text-white backdrop-blur-md lg:order-1 md:p-7 col-span-5 lg:col-span-2">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-semibold uppercase tracking-[1.6px] min-[400px]:text-xl">
+            <Calendar width={26} height={26} />
             {EVENT.city} • {EVENT.dateShort}
           </span>
-          <h1 className="mt-6 text-[32px] font-bold leading-[40px] tracking-[0.1px]">
+          <h1 className="mt-6 text-[32px] font-bold leading-10 tracking-[0.1px]">
             O futuro começa aqui. <em className="font-light">Not there.</em>
           </h1>
           <p className="mt-4 body text-white/90">
@@ -99,9 +79,9 @@ export default function Hero() {
             <strong className="font-semibold">{EVENT.weekday}, 11 de novembro, às {EVENT.time}.</strong> Debates, música e
             Assembleia Popular. Entrada livre. A renda, infelizmente, continua cara.
           </p>
-          <div className="mt-auto flex flex-col gap-3 pt-7">
-            <a href="#bilhete" className="btn-primary w-full">Obter bilhete grátis</a>
-            <a href="#programa" className="btn-secondary w-full">Ver programa</a>
+          <div className="mt-auto flex flex-col gap-3 pt-7 items-center">
+            <a href="#bilhete" className="btn-primary w-full md:w-fit lg:w-full">Obter bilhete grátis</a>
+            <a href="#programa" className="btn-secondary w-full md:w-fit lg:w-full">Ver programa</a>
           </div>
         </div>
       </div>

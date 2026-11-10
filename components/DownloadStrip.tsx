@@ -17,7 +17,7 @@ export default function DownloadStrip() {
           </p>
         </div>
         <form
-          className="space-y-4"
+          className="space-y-4 flex flex-col items-center"
           onSubmit={(e) => {
             e.preventDefault();
             const a = document.createElement("a");
@@ -27,14 +27,14 @@ export default function DownloadStrip() {
             setDone(true);
           }}
         >
-          <div>
+          {/*<div>
             <label htmlFor="dl-email" className="field-label">Email <span aria-hidden="true">*</span></label>
             <input id="dl-email" type="email" required placeholder="o.teu@email.pt" className="field" autoComplete="email" />
-          </div>
-          <div>
+          </div>*/}
+          {/*<div>
             <label htmlFor="dl-name" className="field-label">Nome próprio <span aria-hidden="true">*</span></label>
             <input id="dl-name" type="text" required placeholder="Como te tratamos" className="field" autoComplete="given-name" />
-          </div>
+          </div>*/}
           <button type="submit" className="btn-light gap-2">
             <Download width={18} height={18} />
             {done ? "Descarregar outra vez" : "Descarregar cartaz"}

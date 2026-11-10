@@ -1,4 +1,4 @@
-import { Instagram, Globe, ArrowUpRight } from "iconoir-react";
+import { Instagram, Globe, ArrowUpRight, Mastodon } from "iconoir-react";
 import Logo from "./Logo";
 import { INSTAGRAM, LINKS } from "@/lib/event";
 
@@ -33,6 +33,7 @@ const COLS = [
 ];
 
 const SOCIAL = [
+  { label: "@acampada@coletivos.org", href: "https://social.coletivos.org/@acampada", kicker: "Fediverso", icon: Mastodon },
   ...INSTAGRAM.map((i) => ({ ...i, icon: Instagram, kicker: `Instagram · ${i.city}` })),
   { ...LINKS.site, icon: Globe, kicker: "Site" },
 ];

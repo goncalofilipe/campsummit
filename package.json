@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "iconoir-react": "^7.12.2",
-    "next": "^15.5.29",
+    "next": "^16.4.6",
     "passkit-generator": "^3.7.0",
     "qrcode": "^1.5.4",
     "react": "^19.3.1",

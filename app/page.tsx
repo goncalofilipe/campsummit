@@ -19,7 +19,7 @@ export default function Home() {
         <Hero />
         <Program />
         <Speakers />
-        <Newsletter />
+        {/*<Newsletter />*/}
         <WhyCome />
         <SocialProof />
         <TicketCTA />

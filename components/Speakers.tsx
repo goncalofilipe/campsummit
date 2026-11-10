@@ -38,7 +38,7 @@ export default function Speakers() {
           Personagens compostas. Qualquer semelhança com a tua vida não é coincidência.
         </p>
         <div className="mt-8 flex justify-center">
-          <a href="#bilhete" className="btn-section">Ver todos os oradores (somos 10 milhões)</a>
+          <a href="#bilhete" className="btn-section">Ver todos os oradores (somos mais de 11 milhões)</a>
         </div>
       </div>
     </section>
