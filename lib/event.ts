@@ -104,9 +104,9 @@ const ig = (handle: string, city: string) => ({
 
 export const INSTAGRAM = [
   ig("acampada.lisboa", "Lisboa"),
-  ig("acampada.porto", "Porto"),
+  ig("acampadaporto", "Porto"),
   ig("acampada.evora", "Évora"),
-  ig("acampada.braga", "Braga"),
+  ig("acampadabraga", "Braga"),
   ig("acampada.faro", "Faro"),
 ];
 
