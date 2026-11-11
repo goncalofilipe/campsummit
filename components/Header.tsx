@@ -22,6 +22,7 @@ const NAV: {
     items: [
       { label: "17h00 · Concentração na Alameda dos Oceanos", href: "#programa" },
       { label: "19h00 · Cidade para quem nela vive", href: "#programa" },
+      { label: "20h00 · Cooperativas de habitação", href: "#programa" },
       { label: "20h00 · Democracy and Tech", href: "#programa" },
       { label: "21h00 · Assembleia Popular", href: "#programa" },
     ],

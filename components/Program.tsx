@@ -1,5 +1,5 @@
 import { Calendar, Clock, MapPin, ArrowRight } from "iconoir-react";
-import { EVENT, PROGRAM, LINKS } from "@/lib/event";
+import { EVENT, PROGRAM, LINKS, speakersLine } from "@/lib/event";
 
 export default function Program() {
   const facts = [
@@ -79,17 +79,27 @@ export default function Program() {
         <ol className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line">
           {PROGRAM.map((p, i) => (
             <li
-              key={p.time}
+              key={p.title}
               className="grid gap-2 p-6 sm:grid-cols-[140px_1fr] sm:items-center md:p-8"
             >
               <span className="text-[28px] font-bold leading-none text-magenta md:text-[32px]">
                 {p.time}
               </span>
               <div>
+                {p.kind && (
+                  <span className="mb-2 inline-block rounded-full bg-iconbtn px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[1.2px] text-teal-dark">
+                    {p.kind}
+                  </span>
+                )}
                 <p className="text-xl font-semibold text-navy md:text-2xl">
                   {p.title}
                 </p>
                 <p className="body mt-1 text-muted">{p.desc}</p>
+                {p.speakers && (
+                  <p className="mt-2 text-[15px] font-semibold leading-6 text-navy">
+                    {speakersLine(p)}
+                  </p>
+                )}
               </div>
               {i === PROGRAM.length - 1 && (
                 <span className="sr-only">Último ponto do programa</span>

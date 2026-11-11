@@ -1,4 +1,4 @@
-import { EVENT, PROGRAM, LINKS, INSTAGRAM, WHERE, WHERE_LINE } from "./event";
+import { EVENT, PROGRAM, LINKS, INSTAGRAM, WHERE, WHERE_LINE, speakersLine } from "./event";
 import { formatNumber, personNumber, POPULATION, seatFor } from "./ticket";
 
 const esc = (s: string) =>
@@ -23,7 +23,8 @@ export function renderTicketEmail({ name, id, ticketUrl, siteUrl }: Args) {
       <tr>
         <td width="72" valign="top" style="padding:8px 0;font:700 15px/22px ${font};color:#DE0E7B;">${p.time}</td>
         <td valign="top" style="padding:8px 0;font:600 15px/22px ${font};color:#0C1439;">${esc(p.title)}
-          <div style="font:400 13px/20px ${font};color:#646464;">${esc(p.desc)}</div></td>
+          <div style="font:400 13px/20px ${font};color:#646464;">${esc(p.desc)}</div>${p.speakers ? `
+          <div style="font:600 13px/20px ${font};color:#0C1439;margin-top:2px;">${esc(speakersLine(p))}</div>` : ""}</td>
       </tr>`,
   ).join("");
 
@@ -154,7 +155,7 @@ Lugar: ${seatFor(id)}
 Preço: 0 €
 
 Programa:
-${PROGRAM.map((p) => `${p.time}  ${p.title}: ${p.desc}`).join("\n")}
+${PROGRAM.map((p) => `${p.time}  ${p.title}: ${p.desc}${p.speakers ? ` ${speakersLine(p)}.` : ""}`).join("\n")}
 
 Abrir o bilhete (PDF e Wallet): ${ticketUrl}
 

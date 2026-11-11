@@ -351,7 +351,7 @@ export default function TicketView() {
                   Programa
                 </dt>
                 {PROGRAM.map((p) => (
-                  <dd key={p.time} className="mt-1 flex gap-3 text-[15px]">
+                  <dd key={p.title} className="mt-1 flex gap-3 text-[15px]">
                     <span className="w-12 shrink-0 font-bold text-[#ff5aad]">
                       {p.time.replace("h00", "h")}
                     </span>

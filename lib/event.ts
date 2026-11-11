@@ -35,7 +35,16 @@ export const EVENT = {
   organizer: "Acampada de Lisboa",
 };
 
-export const PROGRAM = [
+export type Speaker = { name: string; org?: string };
+export type ProgramItem = {
+  time: string;
+  kind?: string;
+  title: string;
+  desc: string;
+  speakers?: Speaker[];
+};
+
+export const PROGRAM: ProgramItem[] = [
   {
     time: "17h00",
     title: "Concentração",
@@ -43,13 +52,34 @@ export const PROGRAM = [
   },
   {
     time: "19h00",
+    kind: "Conversa",
     title: "Cidade para quem nela vive",
     desc: "Debate sobre o direito à cidade, na Praça do Oriente.",
+    speakers: [
+      { name: "Jéssica Ribeiro" },
+      { name: "Rui Estrela" },
+      { name: "Rita Silva" },
+      { name: "Bárbara Cruzeiro" },
+    ],
   },
   {
     time: "20h00",
+    kind: "Conversa",
+    title: "Cooperativas de habitação em propriedade coletiva",
+    desc: "Uma alternativa ao modelo neoliberal da habitação.",
+    speakers: [
+      { name: "Augusto Sousa", org: "cooperativa Brejos Faria" },
+      { name: "Carmo Gregório", org: "Ecobairros de Futuro" },
+      { name: "Judit Morello", org: "cooperativa Aldrava" },
+      { name: "Bárbara Cruzeiro", org: "cooperativa Habirizoma" },
+    ],
+  },
+  {
+    time: "20h00",
+    kind: "Conversa",
     title: "Democracy and Tech",
     desc: "Debate sobre como escapar ao autoritarismo tecnológico.",
+    speakers: [{ name: "Filipe Medeiros" }],
   },
   {
     time: "21h00",
@@ -57,6 +87,14 @@ export const PROGRAM = [
     desc: "A assembleia da Acampada de Lisboa. Fala quem cá está. A conversa na praça continua até às 00h30.",
   },
 ];
+
+// "Com A, B (org) e C"
+export function speakersLine(p: ProgramItem): string {
+  if (!p.speakers?.length) return "";
+  const names = p.speakers.map((s) => (s.org ? `${s.name} (${s.org})` : s.name));
+  const list = names.length > 1 ? `${names.slice(0, -1).join(", ")} e ${names[names.length - 1]}` : names[0];
+  return `Com ${list}`;
+}
 
 const ig = (handle: string, city: string) => ({
   label: `@${handle}`,
