@@ -9,11 +9,11 @@ export const EVENT = {
   dateLong: "12 de novembro de 2026",
   dateShort: "12 NOV 2026",
   weekday: "Quinta-feira",
-  time: "17h00",
+  time: "17h30",
   // Concentração (https://maps.app.goo.gl/RP3gF9VMU39CB83d8)
   meet: {
-    time: "17h00",
-    hours: "17h às 19h",
+    time: "17h30",
+    hours: "17h30 às 19h",
     place: "Alameda dos Oceanos",
     note: "em frente ao Centro Comercial Vasco da Gama",
     lat: 38.766837,
@@ -22,13 +22,13 @@ export const EVENT = {
   // Iniciativa pública de conversa (https://maps.app.goo.gl/gtdGicKuE7B4b53x7)
   venue: "Praça do Oriente",
   venueLabel: "Conversa pública",
-  venueHours: "17h às 00h30",
+  venueHours: "19h às 00h30",
   venueNote: "debates às 19h, Assembleia Popular às 21h",
   venueLat: 38.767767,
   venueLng: -9.098221,
   address: "Parque das Nações, Lisboa",
   // Lisboa em novembro está em UTC+0
-  startISO: "2026-11-12T17:00:00Z",
+  startISO: "2026-11-12T17:30:00Z",
   endISO: "2026-11-13T00:30:00Z",
   lat: 38.767767,
   lng: -9.098221,
@@ -46,9 +46,9 @@ export type ProgramItem = {
 
 export const PROGRAM: ProgramItem[] = [
   {
-    time: "17h00",
+    time: "17h30",
     title: "Concentração",
-    desc: "Na Alameda dos Oceanos, em frente ao Centro Comercial Vasco da Gama, até às 19h. À mesma hora começa a conversa pública na Praça do Oriente.",
+    desc: "Na Alameda dos Oceanos, em frente ao Centro Comercial Vasco da Gama, até às 19h. Depois seguimos para a conversa pública na Praça do Oriente.",
   },
   {
     time: "19h00",

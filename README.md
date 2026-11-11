@@ -1,6 +1,6 @@
 # Camp Summit 2026
 
-Site de uma página da Acampada de Lisboa para o Camp Summit (12 nov 2026: concentração na Alameda dos Oceanos, em frente ao Centro Comercial Vasco da Gama, das 17h às 19h; conversa pública na Praça do Oriente, das 17h às 00h30), com um sistema de bilhetes simbólicos.
+Site de uma página da Acampada de Lisboa para o Camp Summit (12 nov 2026: concentração na Alameda dos Oceanos, em frente ao Centro Comercial Vasco da Gama, das 17h30 às 19h; conversa pública na Praça do Oriente, das 19h às 00h30), com um sistema de bilhetes simbólicos.
 
 Next.js 15 + Tailwind 4 + Iconoir.
 

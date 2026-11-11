@@ -62,7 +62,7 @@ export default function PressRelease() {
             </p>
             <p>
               O evento da acampada começa com uma concentração na Alameda dos Oceanos, em frente ao Centro Comercial Vasco da
-              Gama, entre as 17h e as 19h. Na Praça do Oriente, entre as 17h e as 00h30, decorre uma iniciativa pública de
+              Gama, entre as 17h30 e as 19h. Na Praça do Oriente, entre as 19h e as 00h30, decorre uma iniciativa pública de
               conversa, com debates sobre o direito à cidade e tecnologias digitais ao serviço da democracia a partir das 19h.
             </p>
             <p>A partir das 21h, no mesmo lugar, será realizada a Assembleia Popular da Acampada de Lisboa.</p>

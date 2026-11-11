@@ -164,7 +164,7 @@ Segue as acampadas: ${INSTAGRAM.map((i) => i.label).join(" · ")} · ${LINKS.sit
 Bilhete simbólico, entrada livre. Sátira política da Acampada de Lisboa, sem ligação ao Web Summit.`;
 
   return {
-    subject: `${name}, o teu bilhete para o Camp Summit (12 nov, 17h)`,
+    subject: `${name}, o teu bilhete para o Camp Summit (12 nov, 17h30)`,
     html,
     text,
   };
